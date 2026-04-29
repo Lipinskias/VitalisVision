@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitalisVision | Marc Vitalis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --gold: #c5a059; --dark: #0a0a0a; --gray: #1a1a1a; }
+        body { background-color: var(--dark); color: #fff; font-family: 'Times New Roman', serif; margin: 0; line-height: 1.6; }
+        .hero { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=2000') center/cover; padding: 20px; }
+        h1 { font-size: 4rem; letter-spacing: 8px; margin: 0; color: #fff; text-transform: uppercase; }
+        .tagline { font-size: 1.5rem; color: var(--gold); letter-spacing: 3px; margin-top: 10px; font-style: italic; }
+        .container { max-width: 1000px; margin: -50px auto 50px; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--gray); padding: 40px; border-radius: 2px; border: 1px solid #333; transition: 0.4s; text-align: center; }
+        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .card h2 { color: var(--gold); text-transform: uppercase; letter-spacing: 2px; }
+        .btn { display: inline-block; padding: 12px 25px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; margin-top: 20px; transition: 0.3s; text-transform: uppercase; font-size: 0.9rem; }
+        .btn:hover { background: var(--gold); color: #000; }
+        .socials { margin-top: 50px; text-align: center; font-size: 2rem; }
+        .socials a { color: #fff; margin: 0 15px; transition: 0.3s; }
+        .socials a:hover { color: var(--gold); }
+        footer { text-align: center; padding: 50px; color: #555; font-size: 0.9rem; border-top: 1px solid #222; }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <h1>MARC VITALIS</h1>
+        <p class="tagline">ORDER WITHIN CHAOS</p>
+    </section>
+
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <h2>Музыка</h2>
+                <p>Aeterna Chorus — KERYGMA<br>Древние молитвы и псалмы.</p>
+                <a href="https://distrokid.com/hyperfollow/aeternachorus/kerigma" class="button btn">Слушать релиз</a>
+            </div>
+            <div class="card">
+                <h2>Книги</h2>
+                <p>Философия и криптовалюты.<br>Инвестиционный справочник.</p>
+                <a href="#" class="button btn">Купить на Amazon</a>
+            </div>
+            <div class="card">
+                <h2>Медиа</h2>
+                <p>Аналитика и история.<br>Документальные проекты.</p>
+                <a href="https://www.youtube.com/@vitalisvision" class="button btn">Смотреть YouTube</a>
+            </div>
+        </div>
+
+        <div class="socials">
+            <a href="https://www.instagram.com/vitalisvision" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://ok.ru/" title="Одноклассники"><i class="fab fa-odnoklassniki"></i></a>
+            <a href="https://github.com/Lipinskias" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 VITALIS MEDIA | VITALISVISION.COM</p>
+    </footer>
+
+</body>
+</html>
