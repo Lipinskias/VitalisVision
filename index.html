@@ -3,96 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VitalisVision | Media Group</title>
+    <title>VITALIS VISION | Official Portal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --gold: #c5a059; --dark: #050505; --gray: #1a1a1a; }
-        body { background-color: var(--dark); color: #fff; font-family: 'Georgia', serif; margin: 0; line-height: 1.6; }
         
+        body { 
+            background-color: var(--dark); 
+            color: #fff; 
+            font-family: 'Georgia', serif; 
+            margin: 0; 
+            scroll-behavior: smooth;
+        }
+
+        /* Верхнее Меню в стиле Циммера */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(0,0,0,0.9);
+            padding: 20px 0;
+            z-index: 1000;
+            border-bottom: 1px solid #111;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+        nav a {
+            color: #777;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            transition: 0.3s;
+        }
+        nav a:hover { color: var(--gold); }
+
+        /* Фоновые частицы */
+        #canvas-particles {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Главный экран */
         .hero { 
-            height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; 
-            background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%); padding: 20px; 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            position: relative;
+            z-index: 1;
         }
-        
-        .logo-vv {
-            font-size: 3.5rem; color: var(--gold); letter-spacing: 15px; border: 2px solid var(--gold);
-            padding: 15px 10px 15px 25px; width: 120px; margin-bottom: 30px; transition: 0.5s ease;
+
+        /* Разделенное написание имени */
+        .brand-name {
+            display: flex;
+            gap: 60px; /* Большой разрыв между словами */
+            font-size: clamp(1.5rem, 6vw, 3.5rem);
+            text-transform: uppercase;
+            font-weight: 300;
+            letter-spacing: 15px;
         }
-        .logo-vv:hover { background: var(--gold); color: #000; box-shadow: 0 0 40px rgba(197, 160, 89, 0.4); }
+        .brand-name span { color: #fff; }
+        .brand-name .vision { color: var(--gold); }
 
-        h1 { font-size: clamp(2rem, 8vw, 3.2rem); letter-spacing: 18px; text-transform: uppercase; font-weight: 300; margin: 0; }
-        .tagline { font-size: 0.9rem; color: var(--gold); letter-spacing: 12px; margin-top: 20px; text-transform: uppercase; opacity: 0.8; }
+        .tagline { 
+            font-size: 0.8rem; 
+            color: var(--gold); 
+            letter-spacing: 12px; 
+            margin-top: 40px; 
+            text-transform: uppercase; 
+            opacity: 0.6;
+        }
 
-        .container { max-width: 1200px; margin: -100px auto 50px; padding: 20px; position: relative; z-index: 10; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; align-items: start; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 100px 20px; position: relative; z-index: 1; }
+
+        /* Секции */
+        section { padding: 80px 0; border-bottom: 1px solid #111; }
+        h2.section-title { 
+            text-align: center; 
+            color: var(--gold); 
+            letter-spacing: 8px; 
+            text-transform: uppercase; 
+            margin-bottom: 60px;
+            font-size: 1.2rem;
+        }
+
+        /* Описание ABOUT */
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 2.2;
+            color: #999;
+            font-style: italic;
+        }
+
+        /* Сетка проектов */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
 
         .card { 
-            background: rgba(10, 10, 10, 0.98); padding: 50px 30px; border: 1px solid #222; 
-            text-align: center; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+            height: 450px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            border: 1px solid #1a1a1a;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            transition: 0.5s;
         }
-        .card:hover { border-color: var(--gold); transform: translateY(-10px); }
-        .card h2 { color: var(--gold); letter-spacing: 4px; font-size: 1.3rem; margin-bottom: 20px; text-transform: uppercase; }
-        .card p { color: #888; font-size: 0.9rem; margin-bottom: 25px; height: 50px; font-style: italic; }
-        
-        .btn-group { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+        .card::before {
+            content: '';
+            position: absolute; top:0; left:0; width:100%; height:100%;
+            background: linear-gradient(to top, rgba(0,0,0,1) 10%, transparent 100%);
+            z-index: 1;
+        }
+        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
+
+        /* Картинки для разделов */
+        .card-1 { background-image: url('https://images.unsplash.com/photo-1552751753-0fc84ae5b6c8?q=80&w=1000'); }
+        .card-2 { background-image: url('https://images.unsplash.com/photo-1549849171-09f62448709e?q=80&w=1000'); }
+        .card-3 { background-image: url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?q=80&w=1000'); }
+
+        .card-content { position: relative; z-index: 2; }
+        .card h3 { color: var(--gold); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 10px; }
+        .card p { color: #888; font-size: 0.85rem; margin-bottom: 20px; }
+
+        .btn-list { display: flex; flex-direction: column; gap: 8px; }
         .btn { 
-            display: inline-block; width: 85%; padding: 12px 0; border: 1px solid var(--gold); color: var(--gold); 
-            text-decoration: none; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 3px; transition: 0.3s;
+            padding: 8px 15px; border: 1px solid var(--gold); color: var(--gold); 
+            text-decoration: none; text-transform: uppercase; font-size: 0.65rem; letter-spacing: 2px; text-align: center;
         }
         .btn:hover { background: var(--gold); color: #000; }
 
-        .socials { margin-top: 80px; text-align: center; padding-bottom: 60px; }
-        .socials a { color: #444; margin: 0 20px; font-size: 1.8rem; transition: 0.3s; display: inline-block; }
-        .socials a:hover { color: var(--gold); transform: scale(1.15); }
+        /* Новости */
+        .news-item { border-left: 2px solid var(--gold); padding-left: 20px; margin-bottom: 30px; }
+        .news-date { color: var(--gold); font-size: 0.7rem; letter-spacing: 2px; }
+        .news-title { font-size: 1.1rem; margin: 10px 0; color: #eee; }
 
-        footer { text-align: center; padding: 80px 20px; color: #222; font-size: 0.7rem; letter-spacing: 8px; text-transform: uppercase; border-top: 1px solid #111; }
+        .socials { text-align: center; padding: 60px 0; }
+        .socials a { color: #333; margin: 0 20px; font-size: 1.4rem; transition: 0.3s; }
+        .socials a:hover { color: var(--gold); }
+
+        footer { text-align: center; padding: 40px; color: #222; font-size: 0.6rem; letter-spacing: 5px; text-transform: uppercase; }
     </style>
 </head>
 <body>
-    <section class="hero">
-        <div class="logo-vv">VV</div>
-        <h1>VITALISVISION</h1>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#news">News</a>
+    </nav>
+
+    <canvas id="canvas-particles"></canvas>
+
+    <section id="home" class="hero">
+        <div class="brand-name">
+            <span>VITALIS</span>
+            <span class="vision">VISION</span>
+        </div>
         <p class="tagline">ORDER WITHIN CHAOS</p>
     </section>
 
     <div class="container">
-        <div class="grid">
-            <div class="card">
-                <h2>Aeterna Chorus</h2>
-                <p>Сакральные гимны и пробуждение древнего духа в звуке.</p>
-                <div class="btn-group">
-                    <a href="https://distrokid.com/hyperfollow/aeternachorus/vitalis-aeterna-il-risveglio" target="_blank" class="btn">Il Risveglio</a>
-                </div>
+        
+        <section id="about">
+            <h2 class="section-title">The Manifesto</h2>
+            <div class="about-text">
+                Мы создаем архитектуру воли в эпоху цифрового хаоса. Глобальный медиа-узел, где сакральное звучание древних хоров встречается с холодной аналитикой будущего и стоической философией.
             </div>
+        </section>
 
-            <div class="card">
-                <h2>Marc Vitalis</h2>
-                <p>Архитектура воли, философия и отголоски империи.</p>
-                <div class="btn-group">
-                    <a href="https://www.amazon.com/dp/B0GWXNBC3J" target="_blank" class="btn">Stoic Vitality (Book)</a>
-                    <a href="https://distrokid.com/hyperfollow/marcvitalis/the-devil-thinks-twice" target="_blank" class="btn">The Devil Thinks Twice</a>
-                    <a href="https://distrokid.com/hyperfollow/marcvitalis/architecture-of-will" target="_blank" class="btn">Architecture of Will</a>
-                    <a href="https://distrokid.com/hyperfollow/marcvitalis/echoes-of-empire?ref=release" target="_blank" class="btn">Echoes of Empire</a>
+        <section id="projects">
+            <h2 class="section-title">Creative Units</h2>
+            <div class="grid">
+                <div class="card card-1">
+                    <div class="card-content">
+                        <h3>Aeterna Chorus</h3>
+                        <p>Sacral Chants & Ancient Languages</p>
+                        <div class="btn-list">
+                            <a href="https://distrokid.com/hyperfollow/aeternachorus/kerigma" class="btn">KERIGMA</a>
+                            <a href="https://distrokid.com/hyperfollow/aeternachorus/vitalis-aeterna-il-risveglio" class="btn">IL RISVEGLIO</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-2">
+                    <div class="card-content">
+                        <h3>Marc Vitalis</h3>
+                        <p>Philosophy & Global Analytics</p>
+                        <div class="btn-list">
+                            <a href="https://www.amazon.com/dp/B0GWXNBC3J" class="btn">Stoic Vitality (Book)</a>
+                            <a href="https://distrokid.com/hyperfollow/marcvitalis/architecture-of-will" class="btn">Architecture of Will</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-3">
+                    <div class="card-content">
+                        <h3>Productions</h3>
+                        <p>Visual Narratives & Documentaries</p>
+                        <div class="btn-list">
+                            <a href="https://www.youtube.com/@vitalis.vision" class="btn">YouTube Channel</a>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="card">
-                <h2>Production</h2>
-                <p>Визуальные исторические проекты и медиа-продукция.</p>
-                <div class="btn-group">
-                    <a href="https://www.youtube.com/@vitalis.vision" target="_blank" class="btn">YouTube Channel</a>
-                </div>
+        <section id="news">
+            <h2 class="section-title">Latest Updates</h2>
+            <div class="news-item">
+                <div class="news-date">APRIL 2026</div>
+                <div class="news-title">Релиз альбома «KERIGMA» на всех мировых площадках.</div>
             </div>
-        </div>
+            <div class="news-item">
+                <div class="news-date">MARCH 2026</div>
+                <div class="news-title">Запуск официального портала VITALIS VISION.</div>
+            </div>
+        </section>
 
         <div class="socials">
-            <a href="https://x.com/VitalisVision" target="_blank" title="X"><i class="fab fa-x-twitter"></i></a>
-            <a href="https://www.instagram.com/vitalisvision/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@sovereign_mindset" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.youtube.com/@vitalis.vision" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.facebook.com/VitalisVision/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/VitalisVision" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.instagram.com/vitalisvision/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@vitalis.vision" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/VitalisVision/" target="_blank"><i class="fab fa-facebook-f"></i></a>
         </div>
     </div>
-    <footer><p>&copy; 2026 VITALIS MEDIA GROUP | EST. 1976</p></footer>
+
+    <footer>&copy; 2026 VITALIS MEDIA GROUP | ALL RIGHTS RESERVED</footer>
+
+    <script>
+        const canvas = document.getElementById('canvas-particles');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            for(let i=0; i<80; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 1.5,
+                    speed: Math.random() * 0.3
+                });
+            }
+        }
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(197, 160, 89, 0.2)';
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fill();
+                p.y -= p.speed;
+                if(p.y < 0) p.y = canvas.height;
+            });
+            requestAnimationFrame(animate);
+        }
+        init(); animate();
+    </script>
 </body>
 </html>
