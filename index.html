@@ -37,7 +37,7 @@
             background: radial-gradient(circle, #111 0%, #050505 100%); 
         }
         .main-logo { 
-            width: 220px; height: auto; margin-bottom: 60px; 
+            width: 180px; height: auto; margin-bottom: 30px; 
             filter: drop-shadow(0 0 30px rgba(197, 160, 89, 0.3)); 
         }
         .brand-name { 
@@ -45,8 +45,23 @@
             font-weight: 300; letter-spacing: 20px; margin-bottom: 10px; color: var(--gold); 
         }
 
+        /* Hourglass Animation - Strategic Placement */
+        .hourglass-divider {
+            font-size: 2rem;
+            color: var(--gold);
+            margin: 40px 0;
+            animation: flip 5s infinite ease-in-out;
+            opacity: 0.8;
+        }
+        @keyframes flip {
+            0% { transform: rotate(0deg); opacity: 0.5; }
+            45% { transform: rotate(0deg); opacity: 1; }
+            55% { transform: rotate(180deg); opacity: 1; }
+            100% { transform: rotate(180deg); opacity: 0.5; }
+        }
+
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        section { padding: 100px 0; border-bottom: 1px solid #111; }
+        section { padding: 80px 0; border-bottom: 1px solid #111; }
         .section-title { 
             text-align: center; color: var(--gold); letter-spacing: 10px; 
             text-transform: uppercase; margin-bottom: 60px; font-size: 1.4rem; 
@@ -89,7 +104,6 @@
             transform: translate(-50%, -50%); z-index: 0; 
             opacity: 0.4; transition: 0.8s ease; object-fit: cover; 
         }
-        .card:hover .card-video { opacity: 0.7; }
 
         .card-content { position: relative; z-index: 2; text-shadow: 0 2px 15px rgba(0,0,0,1); }
         .icon-box { color: var(--gold); font-size: 2.5rem; margin-bottom: 20px; }
@@ -134,7 +148,11 @@
     <section id="home" class="hero">
         <img src="logo.png" alt="VITALIS VISION" class="main-logo">
         <div class="brand-name">VITALIS VISION</div>
-        <p style="letter-spacing: 5px; color: #555; text-transform: uppercase; font-size: 0.7rem;">Sovereign Media & Philosophy</p>
+        <p style="letter-spacing: 8px; color: #555; text-transform: uppercase; font-size: 0.7rem;">Sovereign Media Production</p>
+        
+        <div class="hourglass-divider"><i class="fas fa-hourglass-half"></i></div>
+        
+        <p style="color: var(--gold); font-style: italic; font-size: 0.8rem; letter-spacing: 2px; opacity: 0.6;">Memento Mori</p>
     </section>
 
     <div class="container">
@@ -147,7 +165,7 @@
                     <div class="card-content">
                         <div class="icon-box"><i class="fas fa-hamsa"></i></div>
                         <h3>Aeterna Chorus</h3>
-                        <p>Ancient Polyphony & Sacred Chants. Reviving the echoes of the soul.</p>
+                        <p>Sacred Chants & Ancient Choral Polyphony. Echoes of the Eternal.</p>
                         <div class="btn-group">
                             <a href="https://distrokid.com/hyperfollow/aeternachorus/kerigma" class="btn" target="_blank">Listen</a>
                             <a href="https://distrokid.com/hyperfollow/aeternachorus/vitalis-aeterna-il-risveglio" class="btn" target="_blank">Release</a>
@@ -160,7 +178,7 @@
                     <div class="card-content">
                         <div class="icon-box"><i class="fas fa-brain"></i></div>
                         <h3>Marc Vitalis</h3>
-                        <p>Practical Stoicism & Global Analytics for the Sovereign Mind.</p>
+                        <p>Stoic Philosophy & Global Analytics for the Sovereign Mind.</p>
                         <div class="btn-group">
                             <a href="https://www.amazon.com/dp/B0GWXNBC3J" class="btn" target="_blank">Books</a>
                             <a href="https://distrokid.com/hyperfollow/marcvitalis/architecture-of-will" class="btn" target="_blank">Manifesto</a>
@@ -178,7 +196,7 @@
                     <div class="card-content">
                         <div class="icon-box"><i class="fas fa-crown"></i></div>
                         <h3>Imperial Archives</h3>
-                        <p>Private High-Fidelity Audio, Restricted Literature, and Senate Access. Verification required.</p>
+                        <p>Private High-Fidelity Audio, Restricted Literature, and Senate Access.</p>
                         <a href="https://t.me/Vitalis_Vision_Bot" class="btn btn-main">ENTER VIA TELEGRAM</a>
                     </div>
                 </div>
