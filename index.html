@@ -14,54 +14,47 @@
         nav a:hover { color: var(--gold); }
         
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle, #111 0%, #050505 100%); }
-        
-        .main-logo { 
-            width: 220px; 
-            height: auto; 
-            margin-bottom: 60px; 
-            filter: drop-shadow(0 0 30px rgba(197, 160, 89, 0.3));
-        }
-        
-        .brand-name { 
-            font-size: clamp(1.5rem, 8vw, 4rem); 
-            text-transform: uppercase; 
-            font-weight: 300; 
-            letter-spacing: 20px; 
-            margin-bottom: 10px;
-            color: var(--gold); 
-        }
+        .main-logo { width: 220px; height: auto; margin-bottom: 60px; filter: drop-shadow(0 0 30px rgba(197, 160, 89, 0.3)); }
+        .brand-name { font-size: clamp(1.5rem, 8vw, 4rem); text-transform: uppercase; font-weight: 300; letter-spacing: 20px; margin-bottom: 10px; color: var(--gold); }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         section { padding: 100px 0; border-bottom: 1px solid #111; }
         .section-title { text-align: center; color: var(--gold); letter-spacing: 10px; text-transform: uppercase; margin-bottom: 60px; font-size: 1.4rem; }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { height: 500px; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; border: 1px solid var(--accent); overflow: hidden; transition: 0.5s ease; }
+        .card { height: 500px; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: 40px; border: 1px solid var(--accent); overflow: hidden; transition: 0.5s ease; background: #000; }
         .card:hover { border-color: var(--gold); }
 
-        .card-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; width: auto; height: auto; transform: translate(-50%, -50%) scale(1.3); z-index: 0; opacity: 0.4; transition: 0.8s ease; object-fit: cover; }
+        .card-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%) scale(1.3); z-index: 0; opacity: 0.4; transition: 0.8s ease; object-fit: cover; }
         .card:hover .card-video { opacity: 0.9; transform: translate(-50%, -50%) scale(1.4); }
 
+        /* ЭФФЕКТ ДЛЯ МОНЕТЫ KURUSH */
+        .card-coin-static { 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+            object-fit: cover; z-index: 0; opacity: 0.6; transition: 1.5s ease;
+            filter: brightness(0.8);
+        }
+        .card:hover .card-coin-static { 
+            opacity: 1; 
+            transform: scale(1.1); 
+            filter: brightness(1.1) drop-shadow(0 0 30px rgba(197, 160, 89, 0.4)); 
+        }
+
         .card-content { position: relative; z-index: 2; text-shadow: 0 2px 15px rgba(0,0,0,1); }
-        .icon-box { color: var(--gold); font-size: 2.5rem; margin-bottom: 20px; opacity: 0.8; }
-        
+        .icon-box { color: var(--gold); font-size: 2.5rem; margin-bottom: 20px; }
         .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
-        .btn { display: inline-block; padding: 10px 15px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; text-transform: uppercase; font-size: 0.6rem; letter-spacing: 1px; transition: 0.3s; flex: 1; text-align: center; min-width: 100px; background: transparent; cursor: pointer; }
+        .btn { display: inline-block; padding: 10px 15px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; text-transform: uppercase; font-size: 0.6rem; letter-spacing: 1px; transition: 0.3s; flex: 1; text-align: center; background: transparent; cursor: pointer; }
         .btn:hover { background: var(--gold); color: #000; }
 
         .news-item { border-left: 2px solid var(--gold); padding: 5px 30px; margin-bottom: 50px; }
         .news-date { color: var(--gold); font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 10px; }
         .news-title { font-size: 1.5rem; font-weight: 300; margin-bottom: 20px; line-height: 1.4; }
-        .social-links { display: flex; gap: 20px; }
-        .social-btn { color: #999; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid transparent; transition: 0.3s; }
-        .social-btn:hover { color: var(--gold); border-bottom: 1px solid var(--gold); }
-
+        
         .social-footer { text-align: center; padding: 60px 0; border-top: 1px solid #111; }
         .social-footer a { color: #333; margin: 0 20px; font-size: 1.8rem; transition: 0.3s; }
         .social-footer a:hover { color: var(--gold); }
         footer { text-align: center; padding-bottom: 40px; color: #222; font-size: 0.6rem; letter-spacing: 5px; text-transform: uppercase; }
 
-        /* Уведомление о копировании */
         .copy-notify { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; padding: 10px 20px; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; display: none; z-index: 2000; }
     </style>
 </head>
@@ -123,11 +116,11 @@
                 </div>
 
                 <div class="card">
-                    <video autoplay muted loop playsinline class="card-video"><source src="gold.mp4" type="video/mp4"></video>
+                    <img src="kurush_coin.jpg" alt="$KURUSH" class="card-coin-static">
                     <div class="card-content">
                         <div class="icon-box"><i class="fas fa-coins"></i></div>
                         <h3>$KURUSH Asset</h3>
-                        <p>The Digital Core of Vitalis Vision</p>
+                        <p>The Sovereign Legacy</p>
                         <div class="btn-group">
                             <button onclick="copyAddress()" class="btn">COPY CONTRACT</button>
                             <a href="https://bscscan.com/token/0xE7fD40268571E86E6686B6fD304859a85D1D6318" class="btn" target="_blank">EXPLORER</a>
@@ -140,19 +133,9 @@
 
         <section id="news">
             <h2 class="section-title">Latest Updates</h2>
-
             <div class="news-item">
                 <div class="news-date">MAY 2026</div>
-                <div class="news-title">Genesis of $KURUSH: 539,000,000 tokens minted. Establishing the sovereign economic core of Vitalis Vision.</div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-date">APRIL 2026</div>
-                <div class="news-title">The Architecture of Will: Launching the Global Digital Hub.</div>
-                <div class="social-links">
-                    <a href="https://t.me/Vitalis_Vision" class="social-btn" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
-                    <a href="https://x.com/VitalisVision" class="social-btn" target="_blank"><i class="fab fa-x-twitter"></i> X / Twitter</a>
-                </div>
+                <div class="news-title">Genesis of $KURUSH: Establishing the sovereign economic core of Vitalis Vision.</div>
             </div>
         </section>
     </div>
