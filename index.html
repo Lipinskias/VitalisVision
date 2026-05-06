@@ -12,10 +12,9 @@
         nav a { color: #777; text-decoration: none; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 3px; transition: 0.3s; }
         nav a:hover { color: var(--gold); }
         
-        /* Hero Section & Seamless Hourglass Video */
+        /* Hero Section & Static Glowing Golden Hourglass Icon */
         .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle, #111 0%, #050505 100%); }
-        .hourglass-video-container { width: 150px; height: 150px; margin-bottom: 20px; display: flex; justify-content: center; align-items: center; background: transparent; overflow: hidden; }
-        .hourglass-video-source { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: screen; border: none; outline: none; }
+        .hourglass-box { font-size: 3.5rem; color: var(--gold); margin-bottom: 25px; filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.5)); }
         
         .main-logo { width: 180px; height: auto; margin-bottom: 40px; filter: drop-shadow(0 0 30px rgba(197, 160, 89, 0.3)); }
         .brand-name { font-size: clamp(1.5rem, 8vw, 4rem); text-transform: uppercase; font-weight: 300; letter-spacing: 20px; margin-bottom: 10px; color: var(--gold); }
@@ -53,10 +52,8 @@
     <nav><a href="#home">Home</a><a href="#productions">Productions</a><a href="#archives">Archives</a><a href="#treasury">Treasury</a></nav>
     
     <section id="home" class="hero">
-        <div class="hourglass-video-container">
-            <video autoplay muted loop playsinline class="hourglass-video-source">
-                <source src="hourglass.mp4" type="video/mp4">
-            </video>
+        <div class="hourglass-box">
+            <i class="fas fa-hourglass-half"></i>
         </div>
         <img src="logo.png" alt="VITALIS VISION" class="main-logo">
         <div class="brand-name">VITALIS VISION</div>
@@ -104,7 +101,7 @@
                         <div class="icon-box"><i class="fas fa-crown"></i></div>
                         <h3>Imperial Archives</h3>
                         <p>Restricted High-Fidelity Audio, Private Literature, and Senate Records.</p>
-                        <a href="https://t.me/Vitalis_Vision_Bot" class="btn btn-main">ENTER VIA TELEGRAM</a>
+                        <a href="https://t.me/VitalisVision_bot" class="btn btn-main">ENTER VIA TELEGRAM</a>
                     </div>
                 </div>
                 <div class="card" id="treasury">
