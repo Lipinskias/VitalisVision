@@ -38,7 +38,7 @@
             height: auto;
             transform: translate(-50%, -50%);
             z-index: 0;
-            opacity: 0.5; /* Идеальная прозрачность для читаемости текста */
+            opacity: 0.5;
             filter: brightness(0.7);
             object-fit: cover;
         }
@@ -89,7 +89,7 @@
         .card-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); z-index: 0; opacity: 0.3; object-fit: cover; }
         .card-content { position: relative; z-index: 2; text-shadow: 0 2px 10px rgba(0,0,0,1); }
         
-        /* Tokenomics Specifics */
+        /* Hierarchy Table */
         .hierarchy-table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 0.8rem; letter-spacing: 1px; }
         .hierarchy-table td { padding: 12px; border-bottom: 1px solid #222; }
         .rank-name { color: var(--gold); font-weight: bold; text-transform: uppercase; }
@@ -100,9 +100,22 @@
         .protocol-item i { color: var(--gold); margin-bottom: 10px; display: block; font-size: 1.2rem; }
         .protocol-item span { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: #777; }
 
-        .coin-container { position: absolute; top: 10%; left: 50%; transform: translateX(-50%); z-index: 1; }
-        .rotating-coin { width: 180px; height: 180px; background-image: url('kurush_coin.jpg.png'); background-size: cover; border-radius: 50%; animation: rotateCoin 10s linear infinite; box-shadow: 0 0 40px rgba(197, 160, 89, 0.15); }
-        @keyframes rotateCoin { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
+        /* 3D Asset Container */
+        .asset-3d-container { 
+            position: absolute; 
+            top: 5%; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            z-index: 1; 
+            width: 220px; 
+            height: 220px; 
+        }
+        .asset-3d-video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 20px rgba(197, 160, 89, 0.2));
+        }
 
         /* Buttons */
         .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 25px; }
@@ -162,7 +175,7 @@
                         <p>Ancient Polyphony & Sacred Chants. The spiritual heartbeat of the Empire.</p>
                         <div class="btn-group">
                             <a href="https://distrokid.com/hyperfollow/aeternachorus/kerigma" class="btn" target="_blank">Kerigma</a>
-                            <a href="https://distrokid.com/hyperfollow/aeternachorus/vitalis-aeterna-il-risveglio" class="btn" target="_blank">Il Risveglio</a>
+                            <a href="https://distrokid.com/hyperfollow/aeternachorus/vitalis-aeterna-il-risveglio" class="btn" target="_blank" style="border-style: double; font-weight: bold;">Risveglio</a>
                         </div>
                     </div>
                 </div>
@@ -172,10 +185,11 @@
                     <div class="card-content">
                         <div class="icon-box"><i class="fas fa-brain" style="color:var(--gold); font-size: 2rem; margin-bottom: 15px;"></i></div>
                         <h3>Marc Vitalis</h3>
-                        <p>Stoic Philosophy & Global Analytics. Architecting the sovereign will.</p>
+                        <p>Stoic Philosophy & Global Analytics. Architecting the sovereign will through sound and word.</p>
                         <div class="btn-group">
-                            <a href="https://www.amazon.com/dp/B0GWXNBC3J" class="btn" target="_blank">Books</a>
                             <a href="https://distrokid.com/hyperfollow/marcvitalis/architecture-of-will" class="btn" target="_blank">Will</a>
+                            <a href="https://distrokid.com/hyperfollow/marcvitalis/echoes-of-empire" class="btn" target="_blank">Echoes</a>
+                            <a href="https://www.amazon.com/dp/B0GWXNBC3J" class="btn" target="_blank" style="border-style: dashed;">Books</a>
                         </div>
                     </div>
                 </div>
@@ -183,109 +197,4 @@
         </section>
 
         <section id="tokenomics">
-            <h2 class="section-title">The $KURUSH Tokenomics</h2>
-            <div class="grid">
-                <div class="card" style="justify-content: flex-start; min-height: 450px;">
-                    <div class="card-content">
-                        <h3>Token Distribution</h3>
-                        <p style="font-size: 0.85rem; color: #888;">Total Supply: 539,000,000 KURUSH</p>
-                        <ul style="list-style: none; padding: 0; font-size: 0.8rem; line-height: 2;">
-                            <li><span style="color:var(--gold)">40%</span> Strategic Reserve</li>
-                            <li><span style="color:var(--gold)">20%</span> Marketing & Global Expansion</li>
-                            <li><span style="color:var(--gold)">20%</span> Liquidity Pool</li>
-                            <li><span style="color:var(--gold)">10%</span> General Airdrop (Oct 29)</li>
-                            <li><span style="color:var(--gold)">10%</span> Core Development</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="card" style="justify-content: flex-start; min-height: 450px; border-color: var(--gold);">
-                    <div class="card-content">
-                        <h3>Deflationary Protocol 10/10/10</h3>
-                        <p style="font-size: 0.85rem; color: #888;">Fueling the value through real media revenue.</p>
-                        <div class="protocol-box">
-                            <div class="protocol-item"><i class="fas fa-fire"></i><span>10% Burn</span></div>
-                            <div class="protocol-item"><i class="fas fa-trophy"></i><span>10% Rewards</span></div>
-                            <div class="protocol-item"><i class="fas fa-hand-holding-heart"></i><span>10% Charity</span></div>
-                        </div>
-                        <p style="font-size: 0.75rem; margin-top: 20px; color: #aaa;">10% of all Amazon & Music revenue is used to buy back and burn $KURUSH monthly.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="treasury">
-            <div class="grid">
-                <div class="card" id="hierarchy" style="min-height: 600px;">
-                    <div class="card-content">
-                        <div class="icon-box"><i class="fas fa-crown" style="color:var(--gold); font-size: 2rem;"></i></div>
-                        <h3>The Imperial Hierarchy</h3>
-                        <p style="font-size: 0.8rem;">Your rank determines your weight in the 53.9M Airdrop Pool.</p>
-                        
-                        <table class="hierarchy-table">
-                            <tr><td class="rank-name">Senator</td><td>$10,000</td><td><span class="multiplier">100x Weight</span></td></tr>
-                            <tr><td class="rank-name">Centurion</td><td>$1,000</td><td><span class="multiplier">10x Weight</span></td></tr>
-                            <tr><td class="rank-name">Immortal</td><td>$100</td><td><span class="multiplier">1x Weight</span></td></tr>
-                            <tr><td class="rank-name" style="color:#555">Seeker</td><td>$10</td><td><span class="multiplier" style="background:#111; color:#444">No Airdrop</span></td></tr>
-                        </table>
-
-                        <a href="https://t.me/VitalisVision_bot" class="btn btn-main">JOIN THE LEGION VIA TELEGRAM</a>
-                    </div>
-                </div>
-
-                <div class="card" style="min-height: 600px;">
-                    <div class="coin-container"><div class="rotating-coin"></div></div>
-                    <div class="card-content">
-                        <div class="icon-box"><i class="fas fa-coins" style="color:var(--gold); font-size: 2rem; margin-bottom: 15px;"></i></div>
-                        <h3>$KURUSH Asset</h3>
-                        <p>The sovereign currency of the Vitalis ecosystem. Built on BNB Smart Chain.</p>
-                        <div class="btn-group">
-                            <button onclick="copyAddress()" class="btn">Copy Contract</button>
-                            <a href="https://bscscan.com/token/0xefC47671706fD87Ff2b960965A895258d4C65312" class="btn" target="_blank">Explorer</a>
-                        </div>
-                        <div class="btn-group">
-                            <a href="whitepaper.pdf" class="btn" style="width: 100%; border-style: dashed;">Download White Paper (PDF)</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <div class="social-footer">
-        <a href="https://x.com/VitalisVision" target="_blank"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://t.me/Vitalis_Vision" target="_blank"><i class="fab fa-telegram"></i></a>
-        <a href="https://www.youtube.com/@vitalis.vision" target="_blank"><i class="fab fa-youtube"></i></a>
-    </div>
-    
-    <footer>&copy; 2026 VITALIS MEDIA GROUP | EST. 1976 | IMPERIAL ASSET: $KURUSH</footer>
-    <div id="copyNotify" class="copy-notify">CONTRACT COPIED TO CLIPBOARD</div>
-    
-    <script>
-        function copyAddress() {
-            const addr = "0xefC47671706fD87Ff2b960965A895258d4C65312";
-            navigator.clipboard.writeText(addr).then(() => {
-                const notify = document.getElementById('copyNotify');
-                notify.style.display = 'block';
-                setTimeout(() => { notify.style.display = 'none'; }, 2000);
-            });
-        }
-
-        function toggleAudio() {
-            const video = document.getElementById('main-video');
-            const btn = document.getElementById('audio-btn');
-            if (video.muted) {
-                video.muted = false;
-                btn.innerHTML = '<i class="fas fa-volume-up"></i> ANTHEM ON';
-                btn.style.background = 'var(--gold)';
-                btn.style.color = '#000';
-            } else {
-                video.muted = true;
-                btn.innerHTML = '<i class="fas fa-volume-mute"></i> ANTHEM OFF';
-                btn.style.background = 'transparent';
-                btn.style.color = 'var(--gold)';
-            }
-        }
-    </script>
-</body>
-</html>
+            <h2 class="
