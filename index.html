@@ -145,9 +145,19 @@
 
         .copy-notify { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; padding: 10px 20px; font-size: 0.7rem; letter-spacing: 2px; display: none; z-index: 2000; }
 
+        /* ИСПРАВЛЕНИЯ ДЛЯ ТЕЛЕФОНА (ХИРУРГИЧЕСКИЙ БЛОК) */
         @media (max-width: 768px) {
+            .hero-video {
+                object-fit: contain !important; /* Цилиндр больше не будет обрезаться по бокам */
+                min-width: 100% !important;
+                min-height: auto !important;
+                height: 100% !important;
+            }
+            .brand-name { 
+                letter-spacing: 6px; 
+                font-size: 1.6rem; /* Слегка уменьшим заголовок, чтобы он не давил на видео */
+            }
             .protocol-box { grid-template-columns: 1fr; }
-            .brand-name { letter-spacing: 8px; }
         }
     </style>
 </head>
