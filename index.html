@@ -145,7 +145,7 @@
 
         .copy-notify { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; padding: 10px 20px; font-size: 0.7rem; letter-spacing: 2px; display: none; z-index: 2000; }
 
-        /* ИСПРАВЛЕНИЯ ДЛЯ ТЕЛЕФОНА (ВЕРСИЯ 2.0 - ТОТАЛЬНЫЙ КОНТРОЛЬ) */
+        /* ИСПРАВЛЕНИЯ ДЛЯ ТЕЛЕФОНА (ВЕРСИЯ 3.0 - ГЕРБ ВЫШЕ) */
         @media (max-width: 768px) {
             .hero-video {
                 width: 100% !important; 
@@ -156,10 +156,18 @@
                 transform: translate(-50%, -50%) !important;
                 object-fit: contain !important;
             }
+            .hero-content {
+                /* Сдвигаем всю группу (лого + текст) выше на 60 пикселей (примерно 2 см) */
+                transform: translateY(-60px) !important;
+            }
             .brand-name { 
                 letter-spacing: 6px; 
                 font-size: 1.6rem; 
-                margin-top: 60px;
+                margin-top: 0px; /* Убираем лишний отступ, чтобы всё было компактно */
+            }
+            .main-logo {
+                width: 120px; /* Немного уменьшим лого для мобилок, чтобы было изящнее */
+                margin-bottom: 15px;
             }
             .protocol-box { grid-template-columns: 1fr; }
         }
