@@ -100,7 +100,7 @@
         .protocol-item i { color: var(--gold); margin-bottom: 10px; display: block; font-size: 1.2rem; }
         .protocol-item span { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: #777; }
 
-        /* ИСПРАВЛЕННЫЙ БЛОК МОНЕТЫ (2D КРУГЛОЕ ВРАЩЕНИЕ) */
+        /* ИСПРАВЛЕННЫЙ БЛОК МОНЕТЫ */
         .asset-3d-container { 
             position: absolute; 
             top: 50px; 
@@ -138,8 +138,8 @@
         .social-footer a:hover { color: var(--gold); }
         
         footer { text-align: center; padding: 40px 0; color: #444; border-top: 1px solid #111; }
-        .footer-contacts { margin-bottom: 20px; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; }
-        .footer-contacts a { color: var(--gold); text-decoration: none; margin: 0 10px; transition: 0.3s; opacity: 0.7; }
+        .footer-contacts { margin-bottom: 20px; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: #444; }
+        .footer-contacts a { color: var(--gold); text-decoration: none; margin: 0 10px; transition: 0.3s; opacity: 0.7; cursor: pointer; }
         .footer-contacts a:hover { opacity: 1; }
         .footer-copy { font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: #222; }
 
@@ -290,11 +290,9 @@
     </div>
     
     <footer>
-        <div class="footer-contacts">
+        <div class="footer-contacts" id="contact-shield">
             Official Contacts: 
-            <a href="mailto:marcvitalisofficial@gmail.com">marcvitalisofficial@gmail.com</a> | 
-            <a href="mailto:lipinski.as@gmail.com">lipinski.as@gmail.com</a>
-        </div>
+            </div>
         <div class="footer-copy">
             &copy; 2026 VITALIS MEDIA GROUP | EST. 1976 | IMPERIAL ASSET: $KURUSH
         </div>
@@ -303,6 +301,20 @@
     <div id="copyNotify" class="copy-notify">CONTRACT COPIED TO CLIPBOARD</div>
     
     <script>
+        // Анти-спам защита: собираем email по частям
+        function loadContacts() {
+            const shield = document.getElementById('contact-shield');
+            const m1 = "marcvitalis" + "official" + "@" + "gmail.com";
+            const m2 = "lipinski" + ".as" + "@" + "gmail.com";
+            
+            shield.innerHTML = 'Official Contacts: ' + 
+                '<a href="mailto:' + m1 + '">' + m1 + '</a> | ' + 
+                '<a href="mailto:' + m2 + '">' + m2 + '</a>';
+        }
+        
+        // Запускаем защиту при загрузке
+        window.onload = loadContacts;
+
         function copyAddress() {
             const addr = "0xefC47671706fD87Ff2b960965A895258d4C65312";
             navigator.clipboard.writeText(addr).then(() => {
