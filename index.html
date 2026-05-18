@@ -96,9 +96,9 @@
         .multiplier { color: #fff; background: #222; padding: 2px 8px; border-radius: 3px; font-size: 0.7rem; }
 
         .protocol-box { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-top: 30px; text-align: center; }
-        .protocol-item { border: 1px solid #222; padding: 15px; background: rgba(255,255,255,0.02); }
-        .protocol-item i { color: var(--gold); margin-bottom: 10px; display: block; font-size: 1.2rem; }
-        .protocol-item span { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: #777; }
+        .protocol-box .protocol-item { border: 1px solid #222; padding: 15px; background: rgba(255,255,255,0.02); }
+        .protocol-box .protocol-item i { color: var(--gold); margin-bottom: 10px; display: block; font-size: 1.2rem; }
+        .protocol-box .protocol-item span { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; color: #777; }
 
         /* ИСПРАВЛЕННЫЙ БЛОК МОНЕТЫ */
         .asset-3d-container { 
@@ -306,7 +306,7 @@
     <footer>
         <div class="footer-contacts" id="contact-shield">
             Official Contacts: 
-            </div>
+        </div>
         <div class="footer-copy">
             &copy; 2026 VITALIS MEDIA GROUP | EST. 1976 | IMPERIAL ASSET: $KURUSH
         </div>
@@ -317,8 +317,8 @@
     <script>
         function loadContacts() {
             const shield = document.getElementById('contact-shield');
-            const m1 = "marcvitalis" + "official" + "@" + "gmail.com";
-            const m2 = "lipinski" + ".as" + "@" + "gmail.com";
+            const m1 = "info" + "@" + "vitalisvision.com";
+            const m2 = "marcvitalis" + "official" + "@" + "gmail.com";
             
             shield.innerHTML = 'Official Contacts: ' + 
                 '<a href="mailto:' + m1 + '">' + m1 + '</a> | ' + 
